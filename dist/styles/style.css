@@ -1,0 +1,78 @@
+@font-face {
+    font-family: Gabriela;
+     src: url(Gabriela/Gabriela-Regular.ttf) format('truetype');
+}
+@font-face {
+     font-family: Raleway;
+     src: url(Raleway/Raleway-Regular.ttf) format('truetype');
+}
+
+body {
+    background-color: #00222c;
+    font-family: Raleway, sans-serif;
+    color: white;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    margin: 0;
+}
+.index, .add, .about {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 7em 1fr 6em;
+    row-gap: 0.7em;
+   }
+
+nav {
+    padding-top: 0.7em;
+    padding-bottom: 0;
+    background-color: ;
+    font-family: Gabriela, serif;
+}
+nav h1 {
+    padding: 0.5em 1em 0 1em;
+    font-size: 1.3em;
+}
+.menu {place-self: center;}
+.menu a {
+    color: ;
+    background-color: ;
+    border: ;
+    border-radius: 30px;
+    float: center;
+    text-align: center;
+    padding: 0.7em;
+    font-size: 0.6em;
+    margin: 0.2em;
+    text-underline-offset: 5%;
+}
+.menu a:hover {
+    background-color: ;
+    color: ;
+    font-size: 0.8em;
+    transition: 0.4s ease;
+    border: ;
+}
+footer {
+    font-family: Raleway, sans-serif;
+    background-color: ;
+    padding: 0.5em 1em;
+    font-size: 0.7em;
+}
+#footLeft {align-content: center;}
+#footLesft h4 {
+    font-family: Gabriela, serif;
+    margin-bottom: 2%;
+}
+#footLeft #copyright{font-size: 0.7em; margin-top: 2%;}
+#footLeft p {padding-left: 10px;}
+#footRight {
+    padding-right: 10px;
+    text-align: end;
+    align-content: center;
+}
+#footRight ul {list-style: none;}
+#footRight li a {
+    color: ;
+    font-size: 0.9em;
+}
