@@ -5,17 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href= "styles/style.css"/>
-    <title>Index</title>
+    <title>Work Experiences</title>
 </head>
 <body class="index">
-    <nav>
-        <h1>Work Experiences</h1> 
-        <div class="menu">
-          <a href="add.html">Lägg till</a>
-          <a href="about.html">Om</a>
-      </div>
-    </nav>
+  <nav>
+      <h1>Din CV Webbsida</h1> 
+      <div class="menu">
+        <a href="add.html">Lägg till</a>
+        <a href="about.html">Om</a>
+    </div>
+  </nav>
 
+  <main class="indexMain">
+    <h2>Jobb Erfarenheter</h2>
+    <table id="expTbl">
+      <thead>
+        <tr>
+          <th>Företagsnamn</th>
+          <th>Arbetsroll</th>
+          <th>Plats</th>
+          <th>Start Datum</th>
+          <th>Slut Datum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Entries will be injected here -->
+      </tbody>
+    </table>
+  </main>
 
   <footer>
     <span id="footLeft">
@@ -36,6 +53,7 @@
       </ul>
     </span>
   </footer>
-</body>
 
+  <script src="index.js"></script>
+</body>
 </html> 
