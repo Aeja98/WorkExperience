@@ -5,9 +5,14 @@ const workexpRoutes = require("./routes/workexp");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//Middleware
+//Middleware- run before any route(GET,POST, etc)
+
+//allows frontend (e.g. from a different port) to make requests to backend without being blocked
 app.use(cors());
-app.use(express.json()); // for JSON body parsing
+
+//automatically parses incoming json requests and adds to req.body to easily access user input in routes 
+    //parse: analyzes program & extracts info
+app.use(express.json());  
 
 //Routes
 app.use("/api/workexp", workexpRoutes);
