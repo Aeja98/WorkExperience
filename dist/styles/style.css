@@ -8,71 +8,109 @@
 }
 
 body {
-    background-color: #00222c;
+    background-color: #270303;
     font-family: Raleway, sans-serif;
-    color: white;
+    color: #FFECEC;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
     margin: 0;
+    row-gap: 0.5em;
 }
-.index, .add, .about {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 7em 1fr 6em;
-    row-gap: 0.7em;
-   }
 
 nav {
+    grid-row: 1;
     padding-top: 0.7em;
     padding-bottom: 0;
-    background-color: ;
+    background-color: #C59191;
+    color: #270303;
     font-family: Gabriela, serif;
+    display: grid;
+    grid-row: 1fr 1fr;
+    grid-column: auto;
 }
 nav h1 {
-    padding: 0.5em 1em 0 1em;
-    font-size: 1.3em;
+    padding: 0 1em;
+    font-size: 1.4em;
+    grid-row: 1;
+    grid-column: 1;
 }
-.menu {place-self: center;}
+.menu {justify-self: center; grid-row: 2; grid-column: 1; padding-bottom: 1em;}
 .menu a {
-    color: ;
-    background-color: ;
-    border: ;
+    color: #C59191;
+    background-color: #470B0B;
+    border: none;
     border-radius: 30px;
     float: center;
     text-align: center;
-    padding: 0.7em;
-    font-size: 0.6em;
+    padding: 0.8em;
+    font-size: 0.7em;
     margin: 0.2em;
     text-underline-offset: 5%;
 }
 .menu a:hover {
-    background-color: ;
-    color: ;
+    background-color: #270303;
     font-size: 0.8em;
-    transition: 0.4s ease;
-    border: ;
+    transition: 0.3s ease;
 }
+
+.indexMain{
+    background-color: #801919b5;
+}
+h2 {
+    padding: 0.5em 1em 0 0.7em;
+    font-size: 1.3em;
+    font-weight: 100;
+}
+table {border-spacing: 0 0.3em; padding: 0 0.3em;}
+#expTbl th {
+    text-align: center;
+    font-family: Gabriela, serif;
+    border: none;
+    font-size: 0.7em;
+    font-weight: 100;
+    background-color: #270303;
+    padding: 0.5em;
+}
+#expTbl td {
+    font-family: Raleway, sans-serif;
+    background-color: #470B0B;
+    border: none;
+    padding: 0.5em;
+    font-size: 0.6em;
+}
+
 footer {
     font-family: Raleway, sans-serif;
-    background-color: ;
+    color: #270303;
+    background-color: #C59191;
     padding: 0.5em 1em;
     font-size: 0.7em;
+    display: grid;
+    grid-row: auto;
+    grid-column: 1fr 1fr;
 }
-#footLeft {align-content: center;}
-#footLesft h4 {
+#footLeft {
+    grid-row: 1;
+    grid-column: 1/2;
+    align-content: center;
+}
+#footLeft h4 {
     font-family: Gabriela, serif;
+    font-weight: 100;
     margin-bottom: 2%;
 }
 #footLeft #copyright{font-size: 0.7em; margin-top: 2%;}
 #footLeft p {padding-left: 10px;}
 #footRight {
+    grid-row: 1;
+    grid-column: 2/3;
     padding-right: 10px;
     text-align: end;
     align-content: center;
 }
 #footRight ul {list-style: none;}
 #footRight li a {
-    color: ;
+    color: #270303;
     font-size: 0.9em;
 }
