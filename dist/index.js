@@ -21,9 +21,39 @@ function renderTable(experiences) {
         <td>${exp.location}</td>
         <td>${formatDate(exp.startdate)}</td>
         <td>${formatDate(exp.enddate)}</td>
+        <td class="deleteCol"><button class="deleteBtn" data-id="${exp.id}">✖</button></td>
     `;
 
     tableBody.appendChild(row);
+    });
+
+    document.querySelectorAll(".deleteBtn").forEach((btn) => {
+        btn.addEventListener("click", async (e) => {
+            const id = btn.dataset.id;
+    
+            if (confirm("Är du säker på att du vill ta bort detta jobb?")) {
+                try {
+                    const response = await fetch(`http://localhost:3000/api/workexp/${id}`, {
+                        method: "DELETE",
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        alert("Jobbet har tagits bort!");
+                        renderTable(experiences.filter(exp => exp.id != id)); // remove from view
+                    }
+                    else {
+                        alert("Kunde inte ta bort jobbet.");
+                        console.error(result.error);
+                    }
+                } 
+                catch (err) {
+                    alert("Nätverksfel vid borttagning.");
+                    console.error(err);
+                }
+            }
+        });
     });
 }
 
