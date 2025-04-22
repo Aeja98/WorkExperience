@@ -9,7 +9,7 @@ fetch("http://localhost:3000/api/workexp")
 //Loads info to table
 function renderTable(experiences) {
     const tableBody = document.querySelector("#expTbl tbody");
-    tableBody.innerHTML = ""; // Clear old data
+    tableBody.innerHTML = "";
 
     experiences.forEach((exp) => {
     const row = document.createElement("tr");
@@ -19,10 +19,21 @@ function renderTable(experiences) {
         <td>${exp.companyname}</td>
         <td>${exp.jobtitle}</td>
         <td>${exp.location}</td>
-        <td>${exp.startdate}</td>
-        <td>${exp.enddate || "—"}</td>
+        <td>${formatDate(exp.startdate)}</td>
+        <td>${formatDate(exp.enddate)}</td>
     `;
 
     tableBody.appendChild(row);
+    });
+}
+
+//Function to format start & end dates & write in swedish
+    //Day Month Year => tex. 26 april 1998
+function formatDate(isoDate) {
+    if (!isoDate) return "—";
+    return new Date(isoDate).toLocaleDateString("sv-SE", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
     });
 }
