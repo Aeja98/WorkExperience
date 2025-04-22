@@ -16,6 +16,40 @@
     </div>
   </nav>
 
+  <main class="addMain">
+    <h2>Lägg till Jobb</h2>
+
+    <form class="addExp">
+      <label id="in1" for="companyname">Företagsnamn</label>
+      <input type="text" id="companyname" required placeholder="Företagsnamn">
+  
+      <br>
+  
+      <label id="in2" for="jobtitle">Arbetsroll</label>
+      <input type="text" id="jobtitle" required placeholder="Arbetsroll">
+  
+      <br>
+  
+      <label id="in3" for="location">Arbetsplats</label>
+      <input type="text" id="location" required placeholder="Arbetsplats">
+  
+      <br>
+  
+      <label id="in4" for="startdate">Start Datum</label>
+      <input type="date" id="startdate" required 
+  
+      <br>
+
+      <label id="in5" for="enddate">Slut Datum</label>
+      <input type="date" id="enddate">
+  
+      <br>
+
+      <button id="submitBtn" type="submit">Spara</button>
+      <button id="resetBtn" type="reset">Återställ</button>
+  
+    </form>
+  </main>
 
   <footer>
     <span id="footLeft">
@@ -37,5 +71,6 @@
     </span>
   </footer>
 
+  <script src="add.js"></script>
 </body>
 </html> 
