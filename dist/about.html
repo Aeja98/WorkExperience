@@ -16,6 +16,48 @@
     </div>
   </nav>
 
+  <main class="aboutMain">
+    <h2>Om Webbplatsen</h2>
+    <div class="abtDivLeft">
+      <h3>Syfte:</h3>
+      <p>
+        Webbplatsens syfte är att tillåta användare att lagra och visa deras tidigare arbetserfarenheter tillsammans med information om det jobbet såsom företagsnamn, användarens arbetsroll, arbetsplats, start- och slutdatum samt möjlighet att radera via en knapp bredvid varje rad.
+        <br>
+        Webbplatsen har tre sidor:
+        <br>
+        <ul>
+          <li><span id="listEl">Startsidan</span> har en tabell som visar alla arbetserfarenheter som användaren har lagt till med en knapp bredvid varje så det går att radera från listan och databasen.</li>
+          <li><span id="listEl">Lägg till</span> sidan har ett formulär där användaren har möjlighet att lägga till fler erfarenheter i tabellen. Alla fält valideras vid infyllning och är obligatoriska. När användaren trycker på spara knappen lagras all data i databsen och visas på startsidan i tabellen.</li>
+          <li><span id="listEl">Om sida</span> som beskriver syftet och information om webbsidan.</li>
+        </ul> 
+      </p>
+    </div>
+
+    <div class="abtDivRight">
+        <h3>Slutsatser:</h3>
+        <p>
+          Genom denna uppgift har jag lärt mig hur man bygger en fullständig CRUD-applikation med en Node.js-backend som använder en Express-server och en MySQL-databas.
+          <br>
+          Jag skapade en REST API som hanterar flera routes och HTTP-metoder och kopplade API'et till en fristående frontend webbsida geonom att använda Fetch API.
+          <br>
+          Jag förbättrade min förståelse för DOM-manipulation. Specifikt så hjälpte det att se hur frontend och backend kommunicerar och hur data flödar från användarinmatning till databasen.
+          <br>
+          Ett område jag vill fortsätta att förbättra är att smidigt ansluta frontend- och backend-kod. Jag stöter ofta på små buggar eller glömmer hur hämtningsförfrågningar fungerar. Att bli mer bekväm med felhantering och testning av API-förfrågningar är något jag kommer att fortsätta jobba på.
+        </p>
+    </div>
+
+    <div class="abtDivBottom">
+      <hr>
+      <h3>Databas information:</h3>
+      <p>
+        Databas-servern jag har valt att använda är MySQL.
+        <br> 
+        Jag började med att skapa databasen workexp och tabellen workexperiences, varje rad i tabellen lagrar alla detaljer om arbetserfarenheter.<br>
+        For att ansluta backend till databsen använde jag mysql2 paketet i Node.js vilket gjorde att Express kunde skicka SQL förfrågan och hämta datat i JSON-format.
+      </p>
+    </div>
+
+  </main>
 
   <footer>
     <span id="footLeft">
