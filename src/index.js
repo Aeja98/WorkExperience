@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 
 //automatically parses incoming json requests and adds to req.body to easily access user input in routes 
-    //parse: analyzes program & extracts info
+  //parse: analyzes program & extracts info
 app.use(express.json());  
 
 //Routes
