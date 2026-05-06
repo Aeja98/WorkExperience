@@ -19,29 +19,32 @@ body {
 }
 
 nav {
-    grid-row: 1;
     padding-top: 0.7em;
     padding-bottom: 0;
     background-color: #C59191;
     color: #270303;
     font-family: Gabriela, serif;
     display: grid;
-    grid-row: 1fr 1fr;
-    grid-column: auto;
+    grid-template-rows: auto auto;
 }
+
 nav h1 {
     padding: 0 1em;
     font-size: 1.2em;
     grid-row: 1;
-    grid-column: 1;
 }
-.menu {justify-self: center; grid-row: 2; grid-column: 1; padding-bottom: 1em;}
+
+.menu {
+    justify-self: center;
+    grid-row: 2;
+    padding-bottom: 1em;
+}
+
 .menu a {
     color: #C59191;
     background-color: #470B0B;
     border: none;
     border-radius: 30px;
-    float: center;
     text-align: center;
     padding: 0.8em;
     font-size: 0.6em;
@@ -49,6 +52,7 @@ nav h1 {
     text-underline-offset: 5%;
     cursor: pointer;
 }
+
 .menu a:hover {
     background-color: #270303;
     font-size: 0.7em;
@@ -68,6 +72,14 @@ h2 {
     grid-column: 1;
     grid-row: 1;
 }
+
+#message {
+    padding: 0 1em;
+    font-size: 0.8em;
+    line-height: 1.4em;
+    color: #FFECEC;
+}
+
 table {
     border-spacing: 0.1em 0.3em; 
     padding: 0 0.3em;
@@ -76,6 +88,9 @@ table {
     place-self: center;
     width: 100%;
 }
+
+#expTbl {overflow-x: auto;}
+
 #expTbl th {
     text-align: center;
     font-family: Gabriela, serif;
@@ -85,17 +100,21 @@ table {
     background-color: #270303;
     padding: 0.3em 0.5em;
 }
+
 #expTbl td {
     font-family: Raleway, sans-serif;
     background-color: #470B0B;
     border: none;
     padding: 0.3em 0.5em;
     font-size: 0.6em;
+    word-break: break-word;
 }
+
 td.deleteCol {
     text-align: center;
     vertical-align: middle;
 }
+
 .deleteBtn {
     background-color: #1b0000;
     color: white;
@@ -109,6 +128,7 @@ td.deleteCol {
     padding: 0;
     box-shadow: #290000e6 0px 6px 12px -2px, #390000c4 0px 3px 7px -3px;
 }
+
 .deleteBtn:hover {
     background-color: white;
     color: black;
@@ -121,71 +141,53 @@ td.deleteCol {
     grid-template-columns: auto;
     grid-template-rows: auto;
 }
+
 .addExp{
     background-color: #470B0B;
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 0 0;
+    grid-template-columns: 1fr;
     margin: 0.5em;
     margin-top: 0;
     padding: 1.2em;
-    padding-bottom: 0;
-    gap: 0.3em 0.5em;
+    gap: 0.5em;
     font-size: 0.9em;
 }
-#in1 {
-    grid-row: 1;
-    grid-column: 1;
-}
-#companyname {
-    grid-row: 1;
-    grid-column: 2;
-}
-#in2 {
-    grid-row: 2;
-    grid-column: 1;
-}
-#jobtitle {
-    grid-row: 2;
-    grid-column: 2;
-}
-#in3 {
-    grid-row: 3;
-    grid-column: 1;
-}
-#location {
-    grid-row: 3;
-    grid-column: 2;
-}
-#in4 {
-    grid-row: 4;
-    grid-column: 1;
-}
-#startdate {
-    grid-row: 4;
-    grid-column: 2;
-}
-#in5 {
-    grid-row: 5;
-    grid-column: 1;
-}
-#enddate {
-    grid-row: 5;
-    grid-column: 2;
-}
-#submitBtn {
-    grid-row: 6;
-    grid-column: 1;
-}
-#resetBtn {
-    grid-row: 6;
-    grid-column: 2;
-}
+
 label {align-self: center;}
-input::placeholder {padding: 0.3em 0.1em; color: #2703037e;}
-input {height: 2em; align-self: center;}
-input:focus {background-color: #fef5f5;}
-input:focus::placeholder{color: #00000030;}
+
+input, textarea {
+    font-family: Raleway, sans-serif;
+    padding: 0.4em;
+    border: none;
+    border-radius: 4px;
+}
+
+input {
+    height: 2em;
+    align-self: center;
+}
+
+textarea {
+    min-height: 6em;
+    resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {color: #2703037e;}
+
+input:focus, textarea:focus {
+    background-color: #fef5f5;
+    outline: 2px solid #C59191;
+}
+
+input:focus::placeholder, textarea:focus::placeholder {color: #00000030;}
+
+.formBtn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+    margin-top: 0.5em;  
+}
+
 #submitBtn, #resetBtn {
     background-color: #270303;
     color: #FFECEC;
@@ -198,8 +200,8 @@ input:focus::placeholder{color: #00000030;}
     font-family: Gabriela, serif;
     cursor: pointer;
     box-shadow: #290000e6 0px 6px 12px -2px, #390000c4 0px 3px 7px -3px;
-
 }
+
 #submitBtn:hover, #resetBtn:hover{
     background-color: #FFECEC;
     color: #270303;
@@ -243,7 +245,7 @@ input:focus::placeholder{color: #00000030;}
     padding: 0 0 0 1.5em;
     line-height: 1.3em;
 }
-#listEl {
+.listEl {
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 0.2em;
@@ -257,8 +259,7 @@ footer {
     padding: 0.5em 1em;
     font-size: 0.6em;
     display: grid;
-    grid-row: auto;
-    grid-column: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 #footLeft {
     grid-row: 1;
@@ -302,8 +303,13 @@ footer {
     }
 
     .addExp {margin: 0.5em 1em; margin-top: 0; row-gap: 0.7em;}
-    input {height: 3em; width: 100%;}
-    input::placeholder {font-size: 1.4em;}
+    input, textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    input {height: 3em;}
+    textarea {min-height: 8em;}
+    input::placeholder, textarea::placeholder {font-size: 1.1em;}
     input[type="date"] {font-size: 0.9em; max-height: 3em; width: 100%;}
     #submitBtn, #resetBtn {width: 13em; height: 2.5em; margin: 1em 0 0 0;}
 
@@ -320,8 +326,11 @@ footer {
     h2 {font-size: 1.4em;}
 
     label {font-size: 1.1em;}
-    input{font-size: 1.1em; height: 2em;}
-    input::placeholder{font-size: 1em;}
+    
+    input, textarea {font-size: 1.1em;}
+    input{height: 2em;}
+    textarea {min-height: 9em;}
+    input::placeholder, textarea::placeholder {font-size: 1em;}
     input[type="date"] {font-size: 1.2em; height: 2.4em;}
     #submitBtn, #resetBtn {width: 13em; height: 2.5em; font-size: 1em;}
 

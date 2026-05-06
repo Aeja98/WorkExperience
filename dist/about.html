@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="se">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,55 +7,71 @@
     <link rel="stylesheet" href= "styles/style.css"/>
     <title>About</title>
 </head>
+
 <body class="about">
   <nav>
-    <h1>Din CV Webbsida</h1> 
-      <div class="menu">
-        <a href="index.html">Start</a>
-        <a href="add.html">Lägg till</a>
+    <h1>Din CV-Webbplats</h1> 
+    <div class="menu">
+      <a href="index.html">Start</a>
+      <a href="add.html">Lägg till</a>
+      <a href="about.html">Om</a>
     </div>
   </nav>
 
   <main class="aboutMain">
     <h2>Om Webbplatsen</h2>
-    <div class="abtDivLeft">
+    <section class="abtDivLeft">
       <h3>Syfte:</h3>
       <p>
-        Webbplatsens syfte är att tillåta användare att lagra och visa deras tidigare arbetserfarenheter tillsammans med information om det jobbet såsom företagsnamn, användarens arbetsroll, arbetsplats, start- och slutdatum samt möjlighet att radera via en knapp bredvid varje rad.
-        <br>
-        Webbplatsen har tre sidor:
-        <br>
-        <ul>
-          <li><span id="listEl">Startsidan</span> har en tabell som visar alla arbetserfarenheter som användaren har lagt till med en knapp bredvid varje så det går att radera från listan och databasen.</li>
-          <li><span id="listEl">Lägg till</span> sidan har ett formulär där användaren har möjlighet att lägga till fler erfarenheter i tabellen. Alla fält valideras vid infyllning och är obligatoriska. När användaren trycker på spara knappen lagras all data i databsen och visas på startsidan i tabellen.</li>
-          <li><span id="listEl">Om sida</span> som beskriver syftet och information om webbsidan.</li>
-        </ul> 
+        Webbplatsens syfte är att låta användare lagra, visa och hantera tidigare arbetserfarenheter. Varje arbetserfarenhet innehåller information som företagsnamn, arbetsroll, plats, startdatum, slutdatum och en beskrivning av arbetet.
       </p>
-    </div>
 
-    <div class="abtDivRight">
-        <h3>Slutsatser:</h3>
-        <p>
-          Genom denna uppgift har jag lärt mig hur man bygger en fullständig CRUD-applikation med en Node.js-backend som använder en Express-server och en MySQL-databas.
-          <br>
-          Jag skapade en REST API som hanterar flera routes och HTTP-metoder och kopplade API'et till en fristående frontend webbsida geonom att använda Fetch API.
-          <br>
-          Jag förbättrade min förståelse för DOM-manipulation. Specifikt så hjälpte det att se hur frontend och backend kommunicerar och hur data flödar från användarinmatning till databasen.
-          <br>
-          Ett område jag vill fortsätta att förbättra är att smidigt ansluta frontend- och backend-kod. Jag stöter ofta på små buggar eller glömmer hur hämtningsförfrågningar fungerar. Att bli mer bekväm med felhantering och testning av API-förfrågningar är något jag kommer att fortsätta jobba på.
-        </p>
-    </div>
-
-    <div class="abtDivBottom">
-      <hr>
-      <h3>Databas information:</h3>
       <p>
-        Databas-servern jag har valt att använda är MySQL.
-        <br> 
-        Jag började med att skapa databasen workexp och tabellen workexperiences, varje rad i tabellen lagrar alla detaljer om arbetserfarenheter.<br>
-        For att ansluta backend till databsen använde jag mysql2 paketet i Node.js vilket gjorde att Express kunde skicka SQL förfrågan och hämta datat i JSON-format.
+        Webbplatsen har tre sidor:
       </p>
-    </div>
+
+      <ul>
+        <li>
+          <span class="listEl">Startsidan</span> visar alla arbetserfarenheter i en tabell. Där går det även att radera poster från både listan och databasen.
+        </li>
+        <li>
+          <span class="listEl">Lägg till</span> innehåller ett formulär där användaren kan lägga till nya arbetserfarenheter. Datan valideras med JavaScript innan den skickas till webbtjänsten med Fetch API.
+        </li>
+        <li>
+          <span class="listEl">Om sida</span> beskriver webbplatsens syfte, databaslösningen och slutsatser från arbetet.
+        </li>
+      </ul> 
+    </section>
+
+    <section class="abtDivRight">
+      <h3>Slutsatser:</h3>
+      <p>
+        Genom denna uppgift har jag lärt mig hur man bygger en CRUD-applikation med en Node.js-backend, en Express-server och en MySQL-databas.
+      </p>
+      <p>
+        Jag skapade ett REST API som hanterar flera routes och HTTP-metoder. Därefter kopplade jag API:et till en fristående frontend-webbplats genom att använda Fetch API.
+      </p>
+      <p>
+        Uppgiften har också förbättrat min förståelse för DOM-manipulation och hur frontend och backend kommunicerar med varandra. Det blev tydligare hur data flödar från användarens formulär, vidare till webbtjänsten och sedan lagras i databasen.
+      </p>
+      <p>
+        Ett område jag vill fortsätta förbättra är frontend- och backend-integration. Jag märker att små fel ofta kan uppstå vid fetch-anrop, routes eller databaskopplingar. Därför vill jag bli ännu mer bekväm med felhantering, testning av API-förfrågningar och felsökning.
+      </p>
+    </section>
+
+    <section class="abtDivBottom">
+      <hr>
+      <h3>Databasinformation:</h3>
+      <p>
+        Databas-servern jag har valt att använda är MySQL via Aiven.
+      </p>
+      <p>
+        Jag skapade databasen <strong>workexperience_db</strong> och tabellen <strong>workexperiences</strong>. Varje rad i tabellen lagrar information om en arbetserfarenhet.
+      </p>
+      <p>
+        För att ansluta backend till databasen använde jag paketet <strong>mysql2</strong> i Node.js. Det gör att Express-servern kan skicka SQL-förfrågningar till databasen och returnera data i JSON-format.
+      </p>
+    </section>
 
   </main>
 
@@ -63,18 +79,16 @@
     <span id="footLeft">
       <h4>Angelica Adolfsson</h4>
       <p>
-        Tel: 000 123-4567
-        <br>
         Email: anad2400@student.miun.se
-
       </p>
-      <p id="copyright">copyright &copy 2025</p>
+      <p id="copyright">Copyright &copy; 2026</p>
     </span>
     <span id="footRight">
       <p>Quick Links:</p>
       <ul>
         <li><a href="index.html">Start</a></li>
-        <li><a href="about.html">Lägg till</a></li>
+        <li><a href="add.html">Lägg till</a></li>
+        <li><a href="about.html">Om</a></li>
       </ul>
     </span>
   </footer>

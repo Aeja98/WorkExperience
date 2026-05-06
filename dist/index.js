@@ -1,69 +1,122 @@
-//Fetch my work experience api
-fetch("http://localhost:3000/api/workexp")
-    .then((res) => res.json())
-    .then((data) => renderTable(data))
-    .catch((err) => {
-    console.error("Failed to load work experiences:", err);
-});
+const API_URL = "http://localhost:3000/api/workexp";
 
-//Loads info to table
-function renderTable(experiences) {
-    const tableBody = document.querySelector("#expTbl tbody");
-    tableBody.innerHTML = "";
+const tableBody = document.querySelector("#expTbl tbody");
+const message = document.querySelector("#message");
 
-    experiences.forEach((exp) => {
-    const row = document.createElement("tr");
+//Fetch work experiences when page loads
+getWorkExperiences();
 
-    //Order of the info
-    row.innerHTML = `
-        <td>${exp.companyname}</td>
-        <td>${exp.jobtitle}</td>
-        <td>${exp.location}</td>
-        <td>${formatDate(exp.startdate)}</td>
-        <td>${formatDate(exp.enddate)}</td>
-        <td class="deleteCol"><button class="deleteBtn" data-id="${exp.id}">✖</button></td>
-    `;
+async function getWorkExperiences() {
+  try {
+    message.textContent = "Laddar arbetserfarenheter...";
 
-    tableBody.appendChild(row);
-    });
+    const response = await fetch(API_URL);
 
-    document.querySelectorAll(".deleteBtn").forEach((btn) => {
-        btn.addEventListener("click", async (e) => {
-            const id = btn.dataset.id;
-    
-            if (confirm("Är du säker på att du vill ta bort detta jobb?")) {
-                try {
-                    const response = await fetch(`http://localhost:3000/api/workexp/${id}`, {
-                        method: "DELETE",
-                    });
+    if (!response.ok) {
+      throw new Error("Kunde inte hämta arbetserfarenheter.");
+    }
 
-                    const result = await response.json();
+    const experiences = await response.json();
 
-                    if (response.ok) {
-                        alert("Jobbet har tagits bort!");
-                        renderTable(experiences.filter(exp => exp.id != id)); // remove from view
-                    }
-                    else {
-                        alert("Kunde inte ta bort jobbet.");
-                        console.error(result.error);
-                    }
-                } 
-                catch (err) {
-                    alert("Nätverksfel vid borttagning.");
-                    console.error(err);
-                }
-            }
-        });
-    });
+    renderTable(experiences);
+  } catch (error) {
+    console.error("Failed to load work experiences:", error);
+    message.textContent = "Kunde inte ladda arbetserfarenheterna. Försök igen senare.";
+  }
 }
 
-//Function to format start & end dates & write in swedish
-    //Day Month Year => tex. 26 april 1998
-function formatDate(isoDate) {
-    if (!isoDate) return "—";
-    return new Date(isoDate).toLocaleDateString("sv-SE", {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
+//Render work experiences in table
+function renderTable(experiences) {
+  tableBody.innerHTML = "";
+
+  if (experiences.length === 0) {
+    message.textContent = "Det finns inga arbetserfarenheter att visa.";
+    return;
+  }
+
+  message.textContent = "";
+
+  experiences.forEach((exp) => {
+    const row = document.createElement("tr");
+
+    const companyCell = document.createElement("td");
+    companyCell.textContent = exp.companyname;
+
+    const titleCell = document.createElement("td");
+    titleCell.textContent = exp.jobtitle;
+
+    const locationCell = document.createElement("td");
+    locationCell.textContent = exp.location;
+
+    const startDateCell = document.createElement("td");
+    startDateCell.textContent = formatDate(exp.startdate);
+
+    const endDateCell = document.createElement("td");
+    endDateCell.textContent = formatDate(exp.enddate);
+
+    const descriptionCell = document.createElement("td");
+    descriptionCell.textContent = exp.description;
+
+    const deleteCell = document.createElement("td");
+    deleteCell.classList.add("deleteCol");
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "✖";
+    deleteButton.classList.add("deleteBtn");
+    deleteButton.addEventListener("click", () => deleteWorkExperience(exp.id));
+
+    deleteCell.appendChild(deleteButton);
+
+    row.appendChild(companyCell);
+    row.appendChild(titleCell);
+    row.appendChild(locationCell);
+    row.appendChild(startDateCell);
+    row.appendChild(endDateCell);
+    row.appendChild(descriptionCell);
+    row.appendChild(deleteCell);
+
+    tableBody.appendChild(row);
+  });
+}
+
+//Delete by id
+async function deleteWorkExperience(id) {
+  const confirmDelete = confirm("Är du säker på att du vill ta bort denna arbetserfarenhet?");
+
+  if (!confirmDelete) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "DELETE"
     });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || "Kunde inte ta bort arbetserfarenheten.");
+    }
+
+    message.textContent = "Arbetserfarenheten har tagits bort.";
+
+    // Fetch updated data from the API after delete
+    getWorkExperiences();
+  } catch (error) {
+    console.error("Delete error:", error);
+    message.textContent = "Kunde inte ta bort arbetserfarenheten. Försök igen.";
+  }
+}
+
+//Format dates format
+function formatDate(isoDate) {
+  if (!isoDate) {
+    return "—";
+  }
+
+  return new Date(isoDate).toLocaleDateString("sv-SE", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
 }

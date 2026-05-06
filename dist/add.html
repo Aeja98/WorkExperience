@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="se">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,45 +9,55 @@
 </head>
 <body class="add">
   <nav>
-    <h1>Din CV Webbsida</h1> 
-      <div class="menu">
-        <a href="index.html">Start</a>
-        <a href="about.html">Om</a>
+    <h1>Din CV-Webbplats</h1> 
+    <div class="menu">
+      <a href="index.html">Start</a>
+      <a href="add.html">Lägg till</a>
+      <a href="about.html">Om</a>
     </div>
   </nav>
 
   <main class="addMain">
-    <h2>Lägg till Jobb</h2>
+    <h2>Lägg till arbetserfarenhet</h2>
 
-    <form class="addExp">
+    <p id="message"></p>
+
+    <form class="addExp" id="addExpForm">
       <label id="in1" for="companyname">Företagsnamn</label>
-      <input type="text" id="companyname" required placeholder="Företagsnamn">
+      <input type="text" id="companyname" placeholder="Företagsnamn">
   
       <br>
   
       <label id="in2" for="jobtitle">Arbetsroll</label>
-      <input type="text" id="jobtitle" required placeholder="Arbetsroll">
+      <input type="text" id="jobtitle" placeholder="Arbetsroll">
   
       <br>
   
       <label id="in3" for="location">Arbetsplats</label>
-      <input type="text" id="location" required placeholder="Arbetsplats">
+      <input type="text" id="location" placeholder="Arbetsplats">
   
       <br>
   
-      <label id="in4" for="startdate">Start Datum</label>
-      <input type="date" id="startdate" required 
+      <label id="in4" for="startdate">Startdatum</label>
+      <input type="date" id="startdate">
   
       <br>
 
-      <label id="in5" for="enddate">Slut Datum</label>
+      <label id="in5" for="enddate">Slutdatum</label>
       <input type="date" id="enddate">
   
       <br>
 
-      <button id="submitBtn" type="submit">Spara</button>
-      <button id="resetBtn" type="reset">Återställ</button>
-  
+      <label for="description">Beskrivning</label>
+      <textarea id="description" placeholder="Beskriv arbetet"></textarea>
+
+      <br>
+      
+      <div class="formBtn">
+        <button id="submitBtn" type="submit">Spara</button>
+        <button id="resetBtn" type="reset">Återställ</button>
+      </div>
+
     </form>
   </main>
 
@@ -55,17 +65,15 @@
     <span id="footLeft">
       <h4>Angelica Adolfsson</h4>
       <p>
-        Tel: 000 123-4567
-        <br>
         Email: anad2400@student.miun.se
-
       </p>
-      <p id="copyright">copyright &copy 2025</p>
+      <p id="copyright">Copyright &copy; 2026</p>
     </span>
     <span id="footRight">
       <p>Quick Links:</p>
       <ul>
         <li><a href="index.html">Start</a></li>
+        <li><a href="add.html">Lägg till</a></li>
         <li><a href="about.html">Om</a></li>
       </ul>
     </span>
