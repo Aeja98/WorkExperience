@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const workexpRoutes = require("./routes/workexp");
@@ -13,6 +15,13 @@ app.use(cors());
 //automatically parses incoming json requests and adds to req.body to easily access user input in routes 
   //parse: analyzes program & extracts info
 app.use(express.json());  
+
+//test route
+app.get("/", (req, res) => {
+  res.json({
+    message: "Work Experience API is running"
+  });
+});
 
 //Routes
 app.use("/api/workexp", workexpRoutes);
