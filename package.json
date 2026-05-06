@@ -1,14 +1,14 @@
 {
   "name": "workexperience",
   "version": "1.0.0",
-  "main": "index.js",
-"scripts": {
-  "start": "node src/index.js"
-},
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
   "keywords": [],
   "author": "Angelica Adolfsson",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
