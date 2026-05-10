@@ -302,8 +302,8 @@ footer {
     body {font-size: 100%;}
 
     h2 {font-size: 1.2em;}
-    table {font-size: 1em; border-spacing: 0.2em; margin-bottom: 0.5em;}
-    #expTbl th {padding: 0.5em 0.8em; font-size: 0.8em; word-break: break-word;}
+    table {font-size: 1em; border-spacing: 0.1em; margin-bottom: 0.5em;}
+    #expTbl th {padding: 0.5em 0.8em; font-size: 0.8em;}
     #expTbl td {padding: 0.5em 0.8em; font-size: 0.7em;}
     .deleteBtn {
         width: 40px;
