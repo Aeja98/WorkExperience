@@ -1,4 +1,4 @@
-const API_URL = "https://workexperience-2c2q.onrender.com";
+const API_URL = "https://workexperience-2c2q.onrender.com/api/workexp";
 
 window.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("#addExpForm");
