@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/workexp";
+const API_URL = "https://workexperience-2c2q.onrender.com";
 
 const tableBody = document.querySelector("#expTbl tbody");
 const message = document.querySelector("#message");
