@@ -106,7 +106,7 @@ table {
     font-size: 0.7em;
     font-weight: 100;
     background-color: #270303;
-    padding: 0.3em;
+    padding: 0.3em 0.5em;
     word-break: break-word;
 }
 
@@ -328,7 +328,7 @@ footer {
 
 }
 @media only screen and (min-width: 1000px){
-    body {font-size: 170%;}
+    body {font-size: 150%;}
     h1 {font-size: 1.3em;}
     .menu {font-size: 1.2em;}
 
