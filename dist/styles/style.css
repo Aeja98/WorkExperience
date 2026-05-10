@@ -116,11 +116,7 @@ table {
     padding: 0.3em 0.5em;
     font-size: 0.6em;
     word-break: break-word;
-    overflow-wrap: anywhere;
-}
-
-#expTbl td:nth-child(6) {
-    max-width: 14em;
+    
 }
 
 td.deleteCol {
@@ -303,6 +299,7 @@ footer {
 }
 
 @media only screen and (min-width: 600px){
+    body {font-size: 150%;}
 
     h2 {font-size: 1.2em;}
     table {border-spacing: 0.2em; margin-bottom: 0.5em;}
